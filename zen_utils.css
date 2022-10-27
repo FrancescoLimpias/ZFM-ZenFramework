@@ -1,0 +1,189 @@
+/* 
+    Set of utility rulesets of css,
+    may be useful.
+
+    F.L.
+*/
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+
+    /* Testing Mode  */
+    /* border: 1px dashed orange; */
+}
+
+
+/*  DEFAULTs
+*
+*   list of default browser stylings
+*   that have been overidden for personal taste
+*   and ease of customization (trough variables)
+*/
+
+
+/*  a
+*   
+*   anchors restyling, they will take the current color,
+*   unless there is a global/local color set for them
+*   --link-color || --link-hover-color
+*/
+a{
+    text-decoration: none;
+    color: var(--link-color, currentColor);
+}
+a:hover{
+    text-decoration: underline;
+    color: var(--link-hover-color, var(--link-color, currentColor));
+}
+
+/*  img
+*
+*   images will take a maximum width of 100%
+*/
+img {
+    max-width: 100%;
+}
+
+/*  hr
+*
+*   horizontal rulers are by browser default UGLY 
+*   (at least in Chrome),
+*   here they take a more subtle and elegant aspect
+*/
+hr {
+    border: none;
+    border-top: 1px solid currentColor;
+}
+
+/*  button
+*
+*   button style strip + cursor set to pointer
+*/
+button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+/*  COMMON
+*
+*   a list of utility classes 
+*   that are of common use
+*/
+
+.pager {
+    width: 100%;
+}
+.pager>* {
+    margin: 0 auto;
+    padding-right: 4%;
+    padding-left: 4%;
+
+    max-width: 1200px;
+}
+.pager>.narrow {
+    padding-right: 6%;
+    padding-left: 6%;
+}
+.pager>.xs.narrow {
+    padding-right: 8%;
+    padding-left: 8%;
+}
+.pager>.xxs.narrow {
+    padding-right: 12%;
+    padding-left: 12%;
+}
+
+/*  Height Spacer
+*
+*   given to container of items you want to be
+*   vertically distantiatied, the amount of
+*   bottom-margin (that's what it is)
+*   is defined by --spacer, the default
+*   value is 1rem
+*
+*   if one of the items has to have
+*   a specific margin, you can exclude it
+*   with the .self-spaced class
+*/
+.height-spacer>*:not(.self-spaced) {
+    margin-bottom: var(--spacer, 1rem);
+}
+
+
+
+.link-list {
+    list-style: none;
+    padding-inline-start: 0;
+}
+/*  DEPRECATED
+*   link stripping has been moved to "COMMON" section: 
+*   now all link are by default destilized
+*/
+/* .link-list a {
+    text-decoration: none;
+    color: currentColor;
+}
+.destilized-link {
+    text-decoration: none;
+    color: inherit;
+} */
+
+
+
+.selectable-container>* {
+    opacity: 0.5;
+}
+
+.selectable-container>*:hover {
+    opacity: 0.75;
+}
+
+.selectable-container>*.active {
+    opacity: 1;
+}
+
+/*  MICRO FLEX
+*
+*   list of micro-flex classes that are meant to
+*   statically (not responsively) align items
+*   in the micro layout
+*/
+/* base classes */
+.mf-align-center {
+    display: flex;
+    align-items: center;
+}
+.mf-justify-center {
+    display: flex;
+    justify-content: center;
+}
+.mf-text-center {
+    text-align: center;
+}
+
+/* themed classes */
+.mf-centered-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.button {
+    padding: 6px 1em;
+    border-radius: 20px;
+
+    text-align: center;
+    text-decoration: none;
+
+    font-weight: 600;
+}
